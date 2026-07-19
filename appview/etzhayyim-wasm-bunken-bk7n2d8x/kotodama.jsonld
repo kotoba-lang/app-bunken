@@ -1,0 +1,47 @@
+{
+  "@context": "https://etzhayyim.com/ns/kotodama/v1",
+  "@id": "did:web:bunken.etzhayyim.com",
+  "component": {
+    "path": "/wasm/component.wasm"
+  },
+  "convoSystemPrompt": "You are bunken agent. 文献書誌 intelligence — 全世界の図書館・アーカイブ文献を actor 化 (NDL/LCCN/OCLC/VIAF/NCID/DOI/ARK 統合)。Respond helpfully in the users language.",
+  "governance": {
+    "raci": "responsible",
+    "classification": "internal",
+    "complianceFrameworks": [
+      "bibliographic-standards"
+    ]
+  },
+  "kpi": [
+    "registered bibliographic DIDs",
+    "scheme coverage"
+  ],
+  "name": "bunken",
+  "nanoid": "bk7n2d8x",
+  "performerType": "service",
+  "profile": {
+    "capabilities": [
+      "bibliographic-collection",
+      "did-registration",
+      "scheme-resolution"
+    ],
+    "description": "文献書誌 intelligence — NDL/LCCN/OCLC/VIAF/NCID/DOI/ARK 統合、古典籍〜近代、9 scheme Multi-DID",
+    "displayName": "Bunken Bibliographic Intelligence",
+    "isBot": true
+  },
+  "project": "bunken",
+  "runtimeType": "worker",
+  "triggers": {
+    "http": {
+      "listen": "0.0.0.0:8080"
+    },
+    "subscribeRepos": {
+      "collections": [
+        "com.etzhayyim.apps.bunken.document",
+        "com.etzhayyim.apps.bunken.collectionJob",
+        "com.etzhayyim.apps.bunken.schemeRecord"
+      ]
+    }
+  },
+  "uiType": "yoro"
+}
