@@ -1,4 +1,4 @@
 {:schema "etzhayyim.migration/v1"
  :source {:repository "etzhayyim/root" :revision "afe5f1d995162277d2fb98f762705b53f9f695fd" :path "60-apps/etzhayyim-project-bunken" :tree "86eb95924bb8c9a14b4b41703e000580133bf9b3" :tracked-files 14 :bytes 51906}
- :destination {:repository "etzhayyim/com-etzhayyim-app-bunken"}
+ :destination {:repository "kotoba-lang/app-bunken"}
  :identity {:allowed-additions ["README.edn" "migration.edn"]}}
