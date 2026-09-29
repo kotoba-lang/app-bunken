@@ -8,7 +8,7 @@
  * ISBN validation/metadata is authoritative at isbn.etzhayyim.com; bunken only
  * manages the cross-scheme bibliographic DID + same-as links.
  *
- * Identity hierarchy (per bunken CLAUDE.md, 9-scheme multi-DID):
+ * Identity hierarchy (per bunken AGENTS.md, 9-scheme multi-DID):
  *   did:web:bunken.etzhayyim.com                          — controller
  *   did:web:bunken.etzhayyim.com:ndl:bib:{bibId}          — NDL 書誌
  *   did:web:bunken.etzhayyim.com:ncid:{ncid}              — CiNii
