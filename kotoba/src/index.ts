@@ -6,7 +6,7 @@
  *
  * Slice 1: registry — registerRecord + getRecord + search + stats.
  * Slice 2: collection pipeline — collectFromCdx → fetchCdxBatch → enrichBatch →
- *          registerDids → linkSameAs (Common Crawl CDX discovery; per CLAUDE.md).
+ *          registerDids → linkSameAs (Common Crawl CDX discovery; per AGENTS.md).
  */
 
 export * from "./types.js";
