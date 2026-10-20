@@ -1,0 +1,27 @@
+(ns bunken.scheme-parity-test
+  "aiueos/bunken_scheme.cljk（判定コア）と正本（types.ts / collection.ts）の
+  parity。閉じた集合・拒否名が変われば落ちる drift 検査。"
+  (:require [clojure.test :refer [deftest is testing]]
+            [clojure.string :as str]
+            ["fs" :as fs]))
+
+(def types-src
+  (fs/readFileSync (str/join "/" ["kotoba" "src" "types.ts"]) "utf8"))
+(def collection
+  (fs/readFileSync (str/join "/" ["kotoba" "src" "collection.ts"]) "utf8"))
+
+(deftest closed-sets-match-guest
+  (testing "guest test-scheme: BunkenScheme の 9 つ"
+    (doseq [s ["ndl:bib" "ndl:pid" "ncid" "lccn" "oclc" "isbn" "doi" "viaf" "ark"]]
+      (is (str/includes? types-src s))))
+  (testing "guest test-material: MaterialType の 7 つ"
+    (doseq [m ["book" "article" "serial" "thesis" "manuscript" "map" "other"]]
+      (is (str/includes? types-src m)))))
+
+(deftest job-rules-match-guest
+  (testing "guest test-admission: scheme 検証と urlPattern 必須"
+    (is (str/includes? collection "BUNKEN_SCHEMES.has"))
+    (is (str/includes? collection "urlPattern")))
+  (testing "guest test-pick: pending が無いジョブは noPendingJob"
+    (is (str/includes? collection "noPendingJob"))
+    (is (str/includes? collection "pending"))))

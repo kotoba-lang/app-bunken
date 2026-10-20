@@ -1,0 +1,18 @@
+;; app-bunken — itonami（dapp）の aiueos アプリ記述子（notes.edn 形）。
+;; 判定コアは aiueos/bunken_scheme.cljk（identifier 体系・収集ジョブ判定）。
+;; 正本は kotoba/src/types.ts + collection.ts。pure（:effects #{}）。
+{:aiueos/component :app/bunken-scheme
+ :aiueos/kind :app
+ :aiueos/trust :untrusted
+ :aiueos/source "bunken_scheme.cljk"
+ :aiueos/wasm "bunken_scheme.wasm"
+ :aiueos/entry "main"
+ :aiueos/args []
+ :aiueos/imports #{}
+ :aiueos/exports #{:app/main
+                   :app/scheme-ok
+                   :app/material-ok
+                   :app/job-admission
+                   :app/job-pick}
+ :aiueos/effects #{}
+ :aiueos/limits {:memory-pages 16 :fuel 5000000}}
